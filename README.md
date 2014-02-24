@@ -12,10 +12,12 @@ choose Build Solution from the Build menu. NuGet will then download the required
 
 Testing
 -------
-The solution contains NUnit tests in the BacklogTracker.Tests project. I have included the Visual Studio wrapper for NUnit, so you should simply be able to run the unit tests from the Test menu inside Visual Studio. Once you have run the tests, the results can be viewed in the Test Explorer (Test --> Windows --> Test Explorer).
+The solution contains NUnit tests in the BacklogTracker.Tests project. These tests make use of the Moq mocking framework as well as AutoFixture for test data generation.
+
+I have included the Visual Studio wrapper for NUnit, so you should simply be able to run the unit tests from the Test menu inside Visual Studio. Once you have run the tests, the results can be viewed in the Test Explorer (Test --> Windows --> Test Explorer).
 
 Alternatively, you can use the NUnit GUI, which should be downloaded to packages\NUnit.Runners.2.6.3\tools within the
-repo once you have built the project.
+repo once you have built the project. Even better would be if you have the excellent JetBrains ReSharper, in which case you can use the test runner built into that tool!
 
 Running
 -------
@@ -26,7 +28,7 @@ self explanatory!
 Notes
 -----
  * The solution has been separated into 3 projects. The idea is that the BacklogTracker project could be shared between a web project and a GUI or console project such as the ConsoleRunner project I have included. The 3rd project is BacklogTracker.Tests, which contain all the unit tests, and would not be included in a production build.
- * This implementation stores the stories in memory. However, a Repository pattern and IRepository interface were used in order to allow an easy change to an alternative implementation that used a relational database.
+ * This implementation stores the stories in memory. However, a Repository pattern and IRepository interface were used in order to allow an easy change to an alternative implementation that used a relational database. This also has the benefit that unit tests can be run without hitting the database simply by changing the configuration of the dependency injector tool.
  * I have added an interface for the Story and Backlog classes to allow mocking and dependency injection.
  * The Backlog class has been designed to be thread-safe, so that concurrent access would be possible from a web server.
  * There is class called KnapsackProblemSolverSprintGenerator that has been excluded from the final solution. I was attempting to use the pseudo-code from http://en.wikipedia.org/wiki/Knapsack_problem#0.2F1_Knapsack_Problem to hopefully find a more efficient algorithm for generating the sprints. However, this class is slower, does not work correctly in all situations, and fails unit tests, so it has been excluded from the build.
