@@ -1,0 +1,6 @@
+
+Points:
+
+- I have added an interface for the Story class to allow mocking and dependency injection if required
+- I have had to remove "public" from the interface declarations as that is implicit in C#
+
