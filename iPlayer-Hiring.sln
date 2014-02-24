@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleRunner", "ConsoleRunner\ConsoleRunner.csproj", "{41268C34-E446-408B-80A3-E2A2C1A04E30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BacklogTracker", "BacklogTracker\BacklogTracker.csproj", "{619B4035-85C8-416D-8166-840613813C67}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{FB399F6D-4A5D-4F90-8D14-34E46F4F771C}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BacklogTracker.Tests", "BacklogTracker.Tests\BacklogTracker.Tests.csproj", "{5D551345-4D75-44B1-9307-9C673F75930F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{41268C34-E446-408B-80A3-E2A2C1A04E30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41268C34-E446-408B-80A3-E2A2C1A04E30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41268C34-E446-408B-80A3-E2A2C1A04E30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41268C34-E446-408B-80A3-E2A2C1A04E30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{619B4035-85C8-416D-8166-840613813C67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{619B4035-85C8-416D-8166-840613813C67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{619B4035-85C8-416D-8166-840613813C67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{619B4035-85C8-416D-8166-840613813C67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D551345-4D75-44B1-9307-9C673F75930F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D551345-4D75-44B1-9307-9C673F75930F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D551345-4D75-44B1-9307-9C673F75930F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D551345-4D75-44B1-9307-9C673F75930F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
