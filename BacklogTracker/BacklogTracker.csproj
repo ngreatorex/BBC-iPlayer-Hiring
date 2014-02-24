@@ -49,9 +49,6 @@
   <ItemGroup>
     <Compile Include="Bootstrap.cs" />
     <Compile Include="IBacklog.cs" />
-    <Compile Include="Implementation\KnapsackProblemSolverSprintGenerator.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="ISprintGenerator.cs" />
     <Compile Include="Implementation\Backlog.cs" />
     <Compile Include="Implementation\PriorityBasedSprintGenerator.cs" />

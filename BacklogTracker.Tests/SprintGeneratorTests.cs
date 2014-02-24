@@ -12,7 +12,7 @@ using NUnit.Framework;
 namespace BacklogTracker.Tests
 {   
     [TestFixture(typeof(PriorityBasedSprintGenerator))]
-    [TestFixture(typeof(KnapsackProblemSolverSprintGenerator))]
+    //[TestFixture(typeof(KnapsackProblemSolverSprintGenerator))]
     public class SprintGeneratorTests<T> where T : ISprintGenerator, new()
     {
         private static List<IStory> Stories = new List<IStory>()
