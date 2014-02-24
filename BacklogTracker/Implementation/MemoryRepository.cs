@@ -10,12 +10,7 @@ namespace BacklogTracker.Implementation
     {
         private Dictionary<TKey, T> _store = new Dictionary<TKey, T>();
 
-        /// <summary>
-        /// Insert a new entry into the repository
-        /// </summary>
-        /// <param name="id">The primary key of the new entity</param>
-        /// <param name="entity">The entity to insert</param>
-        /// <exception cref="System.ArgumentException">The given ID already exists in the repository. Try <see cref="Update"/> instead.</exception>
+        /// <inheritDoc/>
         public void Insert(TKey id, T entity)
         {
             if (_store.ContainsKey(id))
@@ -24,6 +19,7 @@ namespace BacklogTracker.Implementation
             _store.Add(id, entity);
         }
 
+        /// <inheritDoc/>
         public void Update(TKey id, T entity)
         {
             if (!_store.ContainsKey(id))
@@ -32,6 +28,7 @@ namespace BacklogTracker.Implementation
             _store[id] = entity;
         }
 
+        /// <inheritDoc/>
         public T DeleteById(TKey id)
         {
             if (!_store.ContainsKey(id))
@@ -43,11 +40,13 @@ namespace BacklogTracker.Implementation
             return entity;
         }
 
+        /// <inheritDoc/>
         public IQueryable<T> GetAll()
         {
             return _store.Values.AsQueryable();
         }
 
+        /// <inheritDoc/>
         public T GetById(TKey id)
         {
             if (!_store.ContainsKey(id))
