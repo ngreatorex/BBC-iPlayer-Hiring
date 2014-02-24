@@ -9,9 +9,10 @@ namespace BacklogTracker.Implementation
     public class Backlog : IBacklog
     {
         private readonly IRepository<IStory, string> _repository;
-        private readonly IKnapsackProblemSolver _solver;
+        private readonly ISprintGenerator _solver;
+        private readonly object _lock = new object();
 
-        public Backlog(IRepository<IStory, string> repository, IKnapsackProblemSolver solver)
+        public Backlog(IRepository<IStory, string> repository, ISprintGenerator solver)
         {
             this._repository = repository;
             this._solver = solver;
@@ -19,17 +20,26 @@ namespace BacklogTracker.Implementation
 
         public void Add(IStory s)
         {
-            _repository.Insert(s.Id, s);
+            lock (_lock)
+            {
+                _repository.Insert(s.Id, s);
+            }
         }
 
         public IStory Remove(string id)
         {
-            return _repository.DeleteById(id);
+            lock (_lock)
+            {
+                return _repository.DeleteById(id);
+            }
         }
 
         public List<IStory> getSprint(int totalPointsAchievable)
         {
-            return _solver.Solve(totalPointsAchievable, _repository.GetAll()).ToList();
+            lock (_lock)
+            {
+                return _solver.Solve(totalPointsAchievable, _repository.GetAll()).ToList();
+            }
         }
     }
 }

@@ -12,7 +12,6 @@ namespace BacklogTracker
         void Insert(TKey id, T entity);
         void Update(TKey id, T entity);
         T DeleteById(TKey id);
-        IQueryable<T> Find(Expression<Func<T, bool>> predicate);
         IQueryable<T> GetAll();
         T GetById(TKey id);
     }

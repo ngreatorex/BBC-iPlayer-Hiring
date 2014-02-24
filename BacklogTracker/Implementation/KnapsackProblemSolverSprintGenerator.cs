@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace BacklogTracker.Implementation
 {
-    public class DynamicProgrammingKnapsackSolver : IKnapsackProblemSolver
+    /// <summary>
+    /// This class will generate sprints by treating the problem as the 0,1-knapsack problem
+    /// 
+    /// This implementation will calculate value such that one story of a higher priority is always
+    /// more valuable than every story in the next priority down
+    /// </summary>
+    /// <remarks>This class IS NOT thread safe</remarks>
+    public class KnapsackProblemSolverSprintGenerator : ISprintGenerator
     {
         protected int maxPriority;
         protected int maxCountPerPriority;
@@ -92,6 +99,12 @@ namespace BacklogTracker.Implementation
 
         public IEnumerable<IStory> Solve(int capacity, IEnumerable<IStory> candidates)
         {
+            if (capacity < 0)
+                throw new ArgumentException("Argument must be greater than zero", "capacity");
+
+            if (candidates == null)
+                throw new ArgumentNullException("candidates");
+
             IStory[] candidateArray = candidates.OrderBy(x => x.Priority).ThenBy(x => x.Points).ToArray();
             maxPriority = candidates.Max(x => x.Priority);
             maxCountPerPriority = candidates.GroupBy(x => x.Priority).Max(y => y.Count());

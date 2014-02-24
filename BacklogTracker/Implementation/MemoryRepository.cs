@@ -43,11 +43,6 @@ namespace BacklogTracker.Implementation
             return entity;
         }
 
-        public IQueryable<T> Find(System.Linq.Expressions.Expression<Func<T, bool>> predicate)
-        {
-            return _store.Values.AsQueryable().Provider.CreateQuery<T>(predicate);
-        }
-
         public IQueryable<T> GetAll()
         {
             return _store.Values.AsQueryable();
